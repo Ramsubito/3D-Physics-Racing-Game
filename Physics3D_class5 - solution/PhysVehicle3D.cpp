@@ -93,3 +93,9 @@ float PhysVehicle3D::GetKmh() const
 {
 	return vehicle->getCurrentSpeedKmHour();
 }
+//---------------------------------------------------------------------------
+void PhysVehicle3D::Stop()
+{
+	vehicle->getRigidBody()->setLinearVelocity(btVector3(0, 0, 0));
+	vehicle->getRigidBody()->setAngularVelocity(btVector3(0, 0, 0));
+}
