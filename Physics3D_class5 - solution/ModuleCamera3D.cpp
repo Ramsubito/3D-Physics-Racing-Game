@@ -2,6 +2,8 @@
 #include "Application.h"
 #include "PhysBody3D.h"
 #include "ModuleCamera3D.h"
+#include "PhysVehicle3D.h"
+#include "ModulePlayer.h"
 
 ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -107,20 +109,27 @@ update_status ModuleCamera3D::Update(float dt)
 	
 
 }
-	//camera going vehind player-----------------------------
+	//camera going behind player-----------------------------
 	else
-	{ //first modify player module
+	{ //first modify player module (change )
+		btVector3 temp = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin();
+
+		float* tempC = new float[16];
+		App->player->vehicle->vehicle->getChassisWorldTransform().getOpenGLMatrix(tempC);
+
+		mat3x3 C(tempC[0], tempC[1], tempC[2], tempC[4], tempC[5], tempC[6], tempC[8], tempC[9], tempC[10]);
+
+		Position.x = temp.getX();
+		Position.y = temp.getY();
+		Position.z = temp.getZ();
+
+		Position += C * vec3(0, 3, -10);
+
+		LookAt(vec3(temp.getX(), temp.getY(), temp.getZ()));
+	
 
 
-		//Camera position from player
-		vec3 player_camera_position(0, 10, -20);
-		//Player position(get player pos)
 		
-		//Camera world position
-		
-		//Camera looks player from its position(look player from behind)
-
-		//adjustments camera
 
 	}
 	return UPDATE_CONTINUE;

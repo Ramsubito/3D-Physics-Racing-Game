@@ -92,12 +92,12 @@ void PhysBody3D::SetRotation(mat3x3 rotation)
 }
 
 // ---------------------------------------------------------
-void PhysBody3D::SetSensor(bool is_sensor)
+void PhysBody3D::SetAsSensor(bool sensorcheck)
 {
-	if (this->sensorcheck != is_sensor)
+	if (this->sensorcheck != sensorcheck)
 	{
-		this->sensorcheck = is_sensor;
-		if (is_sensor == true)
+		this->sensorcheck = sensorcheck;
+		if (sensorcheck == true)
 			body->setCollisionFlags(body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
 		else
 			body->setCollisionFlags(body->getCollisionFlags() &~btCollisionObject::CF_NO_CONTACT_RESPONSE);

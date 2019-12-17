@@ -24,7 +24,7 @@ public:
 	void SetRotation(mat3x3);
 	void SetTransform(const float* matrix) const;
 	void SetPos(float x, float y, float z);
-	void SetSensor(bool sensorcheck);
+	void SetAsSensor(bool sensorcheck);
 	bool SensorCheck() const;
 	
 	vec3 size;

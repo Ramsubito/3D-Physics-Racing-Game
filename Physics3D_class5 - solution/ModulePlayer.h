@@ -18,10 +18,9 @@ public:
 	bool Start();
 	update_status Update(float dt);
 	bool CleanUp();
-	void reset_playe();
-	//player position in world from a vector given
-	vec3 World_to_Player(vec3, bool translate = true); 
-	vec3 Player_to_World(vec3, bool translate = true);
+	void reset_player();
+	
+	
 
 public:
 

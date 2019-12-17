@@ -3,11 +3,14 @@
 #include "Globals.h"
 #include "glmath.h"
 #include "Light.h"
+#include "Primitive.h"
+
+#include "Bullet/include/btBulletDynamicsCommon.h"
 
 #define MAX_LIGHTS 8
-#define GRAVITY btVector(0.0f, -10.0f , 0.0f)
+//#define GRAVITY btVector(0.0f, -10.0f , 0.0f)
 
-class DebugDraw;
+class DebugDrawer;
 struct PhysBody3D;
 struct PhysVehicle3D;
 struct VehicleInfo;
@@ -25,13 +28,13 @@ public:
 	update_status PostUpdate(float dt);
 	bool CleanUp();
 
-	//create scene
-	PhysBody3D* CreateBody(const Sphere& sphere, float mass = 1.0f);
-	PhysBody3D* CreateBody(const Cube& cube, float mass = 1.0f, bool is_sensor = false);
-	PhysBody3D* CreateBody(const Cylinder& cylinder, float mass = 1.0f);
-	PhysVehicle3D* CreateVehicle(const VehicleInfo& info);
-	btHingeConstraint* Add_Hinge_Constraint(btRigidBody& rbA, btRigidBody& rbB, const btVector3& pivotInA, const btVector3& pivotInB, btVector3& axisInA, btVector3& axisInB, bool disablecollision);
-	btPoint2PointConstraint* Add_P2P_Constraint(btRigidBody& rbA, btRigidBody& rbB, const btVector3& pivotInA, const btVector3& pivotInB, bool disablecollision);
+	PhysBody3D* AddBody(const Sphere& sphere, float mass = 1.0f);
+	PhysBody3D* AddBody(const Cube& cube, float mass = 1.0f);
+	PhysBody3D* AddBody(const Cylinder& cylinder, float mass = 1.0f);
+	PhysVehicle3D* AddVehicle(const VehicleInfo& info);
+	
+	
+	
 	void AddConstraintP2P(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB);
 	void AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB, const vec3& axisS, const vec3& axisB, bool disable_collision = false);
 	
@@ -48,21 +51,20 @@ public:
 private:
 	bool debug;
 
-	btDefaultCollisionConfiguration*	Collision_config;
-	btCollisionDispatcher*				Dispatcher;
-	btBroadphaseInterface*				Broad_ihase_interface;
-	btSequentialImpulseConstraintSolver* Constraint_solver;
-	btDiscreteDynamicsWorld*			World;
-	btDefaultVehicleRaycaster*			Vehicle_raycaster;
-	DebugDrawer*						Debug_draw;
+	btDefaultCollisionConfiguration*	collision_conf;
+	btCollisionDispatcher*				dispatcher;
+	btBroadphaseInterface*				broad_phase;
+	btSequentialImpulseConstraintSolver* solver;
+	btDiscreteDynamicsWorld*			world;
+	btDefaultVehicleRaycaster*			vehicle_raycaster;
+	DebugDrawer*						debug_draw;
 
-	p2List<btCollisionShape*> shape;
+	p2List<btCollisionShape*> shapes;
 	p2List<PhysBody3D*> bodies;
-	p2List<btDefaultMotionState*> motion;
-	p2List<btTypedConstraint*> constraint;
-	p2List<PhysVehicle3D*> vehicle;
-	p2DynArray<Sphere> CanonBallsSpheres;
-	p2DynArray<PhysBody3D*> CanonBallsBody;
+	p2List<btDefaultMotionState*> motions;
+	p2List<btTypedConstraint*> constraints;
+	p2List<PhysVehicle3D*> vehicles;
+	
 
 };
 
