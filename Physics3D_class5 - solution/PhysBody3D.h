@@ -22,13 +22,14 @@ public:
 	// sensors
 	/*void SetAsSensor(bool sensorcheck);
 	bool SensorCheck() const;*/
-	
+	btRigidBody* GetRigidBody();
+
+	btRigidBody* body = nullptr;
 	
 
 
 
 private:
-	btRigidBody* body = nullptr;
 	
 	//bool sensorcheck = false;
 

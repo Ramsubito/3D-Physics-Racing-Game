@@ -3,7 +3,6 @@
 #include "Globals.h"
 #include "glmath.h"
 #include "Light.h"
-#include "Primitive.h"
 
 #include "Bullet/include/btBulletDynamicsCommon.h"
 

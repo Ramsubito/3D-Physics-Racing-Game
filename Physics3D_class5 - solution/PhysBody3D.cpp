@@ -82,3 +82,7 @@ bool PhysBody3D::SensorCheck() const
 	return sensorcheck;
 }*/
 
+btRigidBody * PhysBody3D::GetRigidBody()
+{
+	return body;
+}

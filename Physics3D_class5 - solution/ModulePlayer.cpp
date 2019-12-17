@@ -28,7 +28,7 @@ bool ModulePlayer::Start()
 	car.upchassis_size.Set(2, 4, 4);//modify numbers
 	car.upchassis_offset.Set(0, 1.5, 0);
 	
-	car.headlightBL_size.Set(0, 0, 0);
+	car.headlightBL_size.Set(0, 0, 0 );
 	car.headlightBL_offset.Set(0, 0, 0);
 	car.headlightBR_size.Set(0, 0, 0);
 	car.headlightBR_offset.Set(0, 0, 0);

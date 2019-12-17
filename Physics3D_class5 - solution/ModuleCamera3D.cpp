@@ -42,7 +42,7 @@ update_status ModuleCamera3D::Update(float dt)
 {
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
-
+	
 	vec3 newPos(0, 0, 0);
 	float speed = 3.0f * dt;
 
@@ -98,30 +98,30 @@ update_status ModuleCamera3D::Update(float dt)
 		}
 
 		Position = Reference + Z * length(Position);
+		
 	}
+	
 	//camera going behind player-----------------------------
 	else
 	{ //first modify player module (change )
-		btVector3 temp = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin();
+		mat4x4 matrix;
+		App->player->vehicle->GetTransform(&matrix);
 
-		float* tempC = new float[16];
-		App->player->vehicle->vehicle->getChassisWorldTransform().getOpenGLMatrix(tempC);
+		Position = matrix.translation();
 
-		mat3x3 C(tempC[0], tempC[1], tempC[2], tempC[4], tempC[5], tempC[6], tempC[8], tempC[9], tempC[10]);
+		X = vec3{ matrix[0], matrix[1], matrix[2] };
+		Y = vec3{ matrix[4], matrix[5], matrix[6] };
+		Z = vec3{ matrix[8], matrix[9], matrix[10] };
 
-		Position.x = temp.getX();
-		Position.y = temp.getY();
-		Position.z = temp.getZ();
-
-		Position += C * vec3(0, 3, -10);
-
-		LookAt(vec3(temp.getX(), temp.getY(), temp.getZ()));
+		vec3 VehicleLocation = { matrix[12], matrix[13] + 7, matrix[14] };
+		Look((VehicleLocation)-Z * 20, VehicleLocation, true);
 	
 
 
 		
 
 	}
+	CalculateViewMatrix();
 	return UPDATE_CONTINUE;
 }
 

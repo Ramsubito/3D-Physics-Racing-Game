@@ -1,5 +1,10 @@
-﻿  PhysBody3D.cpp
+﻿  ModuleCamera3D.cpp
+  ModulePlayer.cpp
+c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\moduleplayer.cpp(31): error C2660: 'vec3::Set': function does not take 4 arguments
+  c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\glmath.h(178): note: see declaration of 'vec3::Set'
+  PhysBody3D.cpp
 c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\physbody3d.cpp(33): error C2084: function 'void PhysBody3D::Push(float,float,float)' already has a body
   c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\physbody3d.cpp(18): note: see previous definition of 'Push'
 c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\physbody3d.cpp(38): error C2084: function 'void PhysBody3D::GetTransform(float *) const' already has a body
   c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\physbody3d.cpp(24): note: see previous definition of 'GetTransform'
+  Generating Code...
