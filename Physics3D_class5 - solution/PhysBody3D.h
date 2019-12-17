@@ -3,7 +3,6 @@
 
 #include "p2List.h"
 
-
 class btRigidBody;
 class Module;
 
@@ -19,19 +18,12 @@ public:
 	void GetTransform(float* matrix) const;
 	void SetTransform(const float* matrix) const;
 	void SetPos(float x, float y, float z);
-	// sensors
-	/*void SetAsSensor(bool sensorcheck);
-	bool SensorCheck() const;*/
 	btRigidBody* GetRigidBody();
 
 	btRigidBody* body = nullptr;
-	
-
-
 
 private:
-	
-	//bool sensorcheck = false;
+
 
 public:
 	p2List<Module*> collision_listeners;
