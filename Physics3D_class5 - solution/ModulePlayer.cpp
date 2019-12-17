@@ -23,6 +23,25 @@ bool ModulePlayer::Start()
 	// Car properties ----------------------------------------
 	car.chassis_size.Set(2, 2, 4);
 	car.chassis_offset.Set(0, 1.5, 0);
+	//modifications
+	
+	car.upchassis_size.Set(2, 4, 4);//modify numbers
+	car.upchassis_offset.Set(0, 1.5, 0);
+	
+	car.headlightBL_size.Set(0, 0, 0);
+	car.headlightBL_offset.Set(0, 0, 0);
+	car.headlightBR_size.Set(0, 0, 0);
+	car.headlightBR_offset.Set(0, 0, 0);
+	car.headlightFR_size.Set(0, 0, 0);
+	car.headlightFR_offset.Set(0, 0, 0);
+	car.headlightFL_size.Set(0, 0, 0);
+	car.headlightFL_offset.Set(0, 0, 0);
+	
+	
+	
+	
+	
+	
 	car.mass = 500.0f;
 	car.suspensionStiffness = 15.88f;
 	car.suspensionCompression = 0.83f;
@@ -117,9 +136,13 @@ update_status ModulePlayer::Update(float dt)
 
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 	{
-	
-		
-		acceleration = MAX_ACCELERATION;
+	//acceleration = MAX_ACCELERATION;
+		if (vehicle->GetKmh() >= 0.0f) {
+			acceleration = MAX_ACCELERATION;
+		}
+		else {
+			brake = BRAKE_POWER;
+		}
 		
 	}
 
@@ -137,7 +160,14 @@ update_status ModulePlayer::Update(float dt)
 
 	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
 	{
-		brake = BRAKE_POWER;
+		//brake = BRAKE_POWER;
+		if (vehicle->GetKmh() < 0.0f) {
+			acceleration = -MAX_ACCELERATION;
+		}
+		else {
+			brake = BRAKE_POWER;
+		}
+
 	}
 
 	vehicle->ApplyEngineForce(acceleration);

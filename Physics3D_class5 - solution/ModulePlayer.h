@@ -18,7 +18,7 @@ public:
 	bool Start();
 	update_status Update(float dt);
 	bool CleanUp();
-	void reset_player();
+	//void reset_player();
 	
 	
 
@@ -28,8 +28,9 @@ public:
 	float turn;
 	float acceleration;
 	float brake;
-	bool win = false;
-	bool lose = false;
-	float z = 0;
-	float speed = 0;
+	//bool win = false;
+	//bool lose = false;
+	//Cube cube;
+	//PhysBody3D* Object;
+
 };

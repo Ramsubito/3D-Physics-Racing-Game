@@ -43,13 +43,9 @@ update_status ModuleCamera3D::Update(float dt)
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
 
-	if (App->physics->debuging)
-	{
-		//put everything inside
-	
-
 	vec3 newPos(0, 0, 0);
 	float speed = 3.0f * dt;
+
 	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
 		speed = 8.0f * dt;
 
@@ -62,6 +58,7 @@ update_status ModuleCamera3D::Update(float dt)
 
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= X * speed;
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed;
+
 
 	Position += newPos;
 	Reference += newPos;
@@ -102,13 +99,6 @@ update_status ModuleCamera3D::Update(float dt)
 
 		Position = Reference + Z * length(Position);
 	}
-
-	// Recalculate matrix -------------
-	CalculateViewMatrix();
-
-	
-
-}
 	//camera going behind player-----------------------------
 	else
 	{ //first modify player module (change )

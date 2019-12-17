@@ -26,6 +26,20 @@ struct VehicleInfo
 	
 	vec3 chassis_size;
 	vec3 chassis_offset;
+	
+	vec3 upchassis_size;
+	vec3 upchassis_offset;
+	
+	vec3 headlightFR_size;//(frontright)
+	vec3 headlightFR_offset;
+	vec3 headlightFL_size;//(frontleft)
+	vec3 headlightFL_offset;
+	vec3 headlightBR_size;//(backright)
+	vec3 headlightBR_offset;
+	vec3 headlightBL_size;//(backleft)
+	vec3 headlightBL_offset;
+
+	
 	float mass;
 	float suspensionStiffness; // default to 5.88 / 10.0 offroad / 50.0 sports car / 200.0 F1 car
 	float suspensionCompression; // default to 0.83
@@ -50,7 +64,6 @@ public:
 	void Brake(float force);
 	void Turn(float degrees);
 	float GetKmh() const;
-	void Stop();
 public:
 
 	VehicleInfo info;

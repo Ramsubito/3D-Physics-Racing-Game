@@ -20,6 +20,7 @@ public:
 	bool CleanUp();
 
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
+
 	
 
 public:
@@ -42,10 +43,8 @@ public:
 
 	PhysMotor3D* left_wheel;
 	PhysMotor3D* right_wheel;
+	
+	//colliders
 
-	Sphere sphere;
-	PhysBody3D* spot;
-	p2DynArray<Cube> Cube_map;
-	p2DynArray<PhysBody3D*> Cube_map_p;
 
 };
