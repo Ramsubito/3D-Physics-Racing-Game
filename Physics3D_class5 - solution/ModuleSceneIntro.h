@@ -51,8 +51,9 @@ public:
 	p2DynArray<Cube> Obstacle;
 	p2DynArray<PhysBody3D*> PhysBody_Obstacle;
 
+	PhysBody3D* victory;
+	Cube c_victory;
 	
-	//colliders
 
 
 };

@@ -29,8 +29,7 @@ public:
 	float acceleration;
 	float brake;
 	//bool win = false;
-	//bool lose = false;
-	//Cube cube;
-	//PhysBody3D* Object;
+	//Timer win_timer;
+	
 
 };
