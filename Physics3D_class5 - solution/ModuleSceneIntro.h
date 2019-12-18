@@ -48,6 +48,10 @@ public:
 	p2DynArray<Cube> BoxObject;
 	p2DynArray<PhysBody3D*> PhysBody_BoxObejct;
 	
+	p2DynArray<Cube> Obstacle;
+	p2DynArray<PhysBody3D*> PhysBody_Obstacle;
+
+	
 	//colliders
 
 
