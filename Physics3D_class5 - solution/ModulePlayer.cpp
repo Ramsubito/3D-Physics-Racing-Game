@@ -21,12 +21,12 @@ bool ModulePlayer::Start()
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
-	car.chassis_size.Set(2, 2, 4);
-	car.chassis_offset.Set(0, 1.5, 0);
+	car.chassis_size.Set(4, 1.5,6 );
+	car.chassis_offset.Set(0, 1.05, 0);
 	//modifications
 	
-	car.upchassis_size.Set(2, 4, 4);//modify numbers
-	car.upchassis_offset.Set(0, 1.5, 0);
+	car.upchassis_size.Set(1, 1, 1.2);//modify numbers
+	car.upchassis_offset.Set(1, 1.5, 8);
 	
 	car.headlightBL_size.Set(0, 0, 0 );
 	car.headlightBL_offset.Set(0, 0, 0);

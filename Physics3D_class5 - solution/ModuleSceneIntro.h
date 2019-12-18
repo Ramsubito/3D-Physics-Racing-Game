@@ -43,6 +43,10 @@ public:
 
 	PhysMotor3D* left_wheel;
 	PhysMotor3D* right_wheel;
+
+
+	p2DynArray<Cube> BoxObject;
+	p2DynArray<PhysBody3D*> PhysBody_BoxObejct;
 	
 	//colliders
 

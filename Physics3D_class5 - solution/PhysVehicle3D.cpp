@@ -101,11 +101,10 @@ void PhysVehicle3D::Render()
 
 	chassis.Render();
 	upchassis.Render();
-	//headlights
-		headlightFR.Render();
-		headlightFL.Render();
-		headlightBR.Render();
-		headlightBL.Render();
+	headlightFR.Render();
+	headlightFL.Render();
+	headlightBR.Render();
+	headlightBL.Render();
 
 }
 
@@ -151,3 +150,4 @@ float PhysVehicle3D::GetKmh() const
 	return vehicle->getCurrentSpeedKmHour();
 }
 //---------------------------------------------------------------------------
+

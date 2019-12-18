@@ -61,7 +61,7 @@ update_status ModuleCamera3D::Update(float dt)
 	Position += newPos;
 	Reference += newPos;
 	*/
-	/*
+	
 	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
 	{
 		int dx = -App->input->GetMouseXMotion();
@@ -96,8 +96,22 @@ update_status ModuleCamera3D::Update(float dt)
 
 		Position = Reference + Z * length(Position);
 	}
-	*/
-	
+	else {
+		btVector3 temp = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin();
+
+		float* tempC = new float[16];
+		App->player->vehicle->vehicle->getChassisWorldTransform().getOpenGLMatrix(tempC);
+
+		mat3x3 C(tempC[0], tempC[1], tempC[2], tempC[4], tempC[5], tempC[6], tempC[8], tempC[9], tempC[10]);
+
+		Position.x = temp.getX();
+		Position.y = temp.getY();
+		Position.z = temp.getZ();
+
+		Position += C * vec3(0, 3, -10);
+
+		LookAt(vec3(temp.getX(), temp.getY(), temp.getZ()));
+		/*
 		mat4x4 matrix;
 		App->player->vehicle->GetTransform(&matrix);
 
@@ -109,7 +123,8 @@ update_status ModuleCamera3D::Update(float dt)
 
 		vec3 VehicleLocation = { matrix[12], matrix[13] + ViewVector.y, matrix[14] };
 		Look((VehicleLocation)-Z * 15, VehicleLocation, true);
-	
+	*/
+	}
 
 	
 
