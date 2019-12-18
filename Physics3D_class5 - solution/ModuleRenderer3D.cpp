@@ -12,25 +12,12 @@
 
 ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
-	debug = true;
-
-	debug = true;
-
-	collision_conf = new btDefaultCollisionConfiguration();
-	dispatcher = new btCollisionDispatcher(collision_conf);
-	broad_phase = new btDbvtBroadphase();
-	solver = new btSequentialImpulseConstraintSolver();
-	debug_draw = new DebugDrawer();
+	
 }
 
 // Destructor
 ModuleRenderer3D::~ModuleRenderer3D()
 {
-	delete debug_draw;
-	delete solver;
-	delete broad_phase;
-	delete dispatcher;
-	delete collision_conf;
 }
 
 // Called before render is available
