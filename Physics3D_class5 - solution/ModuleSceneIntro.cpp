@@ -225,15 +225,26 @@ BodyFinal5 = App->physics->AddBody(Final5, 0);
 BodyFinal5->SetPos(-6, 11, -4.5);
 PhysBody_FinalObjects.PushBack(BodyFinal5); 
 
-Cube Final6;
-PhysBody3D*BodyFinal6;
-Final6.size.x = 0.1;
-Final6.size.z = 11;
-Final6.size.y = 2;
-FinalObjects.PushBack(Final6);
-BodyFinal6 = App->physics->AddBody(Final6, 0);
-BodyFinal6->SetPos(-6, 11, -4.5);
-PhysBody_FinalObjects.PushBack(BodyFinal6);
+
+//Ball 
+Sphere ballkicker;
+ballkicker.SetPos(23, 0, 26);
+ballkicker.radius = 1;
+MySphereObj.PushBack(ballkicker);
+
+PhysBody3D*ballkickerObject;
+ballkickerObject = App->physics->AddBody(ballkicker, 1);
+MyPhysbodySphereobj.PushBack(ballkickerObject);
+
+Cube rect;
+rect.size.y =6;
+MyCubeObj.PushBack(rect);
+
+PhysBody3D* RectObject;
+RectObject = App->physics->AddBody(rect, 0);
+MyPhysbodyCubeobj.PushBack(RectObject);
+
+App->physics->Add_P2P_Constraint(*ballkickerObject->GetRigidBody(), *RectObject->GetRigidBody(), btVector3(0, 1, 0), btVector3(0, 1, 0), true);
 
 
 
@@ -273,9 +284,15 @@ update_status ModuleSceneIntro::Update(float dt)
 
 
 	}
+	for (int i = 0; i < MySphereObj.Count(); i++) {
+		MySphereObj[i].Render();
+		MyPhysbodySphereobj[i]->GetTransform(&MySphereObj[i].transform);
+	}
 	
-	
-	
+	for (int i = 0; i < MyCubeObj.Count(); i++) {
+		MyCubeObj[i].Render();
+		MyPhysbodyCubeobj[i]->GetTransform(&MyCubeObj[i].transform);
+	}
 
 	
 
@@ -289,16 +306,16 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
 
 	
-	/*if( (body1 == StartCol)||(body2 == StartCol))
+	if( (body1 == StartCol)||(body2 == StartCol))
 	{
 		started = true;
 		timer.Start();
 	}
-	else if((body1 == FinishCol)||(body1 == FinishCol)){
+	else if((body1 == FinishCol)||(body2 == FinishCol)){
 
 		App->player->Reset_player();
 		started = false;
 		timer.Reset();
-	}*/
+	}
 }
 

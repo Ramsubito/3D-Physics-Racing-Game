@@ -21,7 +21,6 @@ public:
 	void Reset_player();
 	
 	
-	
 
 public:
 
@@ -30,6 +29,8 @@ public:
 	float acceleration;
 	float brake;
 	
+	bool win = false;
+	bool loose = false;
 	
 
 };

@@ -1,5 +1,4 @@
 #include "PhysBody3D.h"
-#include "glmath.h"
 #include "Bullet/include/btBulletDynamicsCommon.h"
 
 // =================================================
@@ -70,3 +69,4 @@ bool PhysBody3D::IsSensor() const
 {
 	return is_sensor;
 }
+

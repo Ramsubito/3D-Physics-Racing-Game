@@ -25,17 +25,7 @@ bool ModulePlayer::Start()
 	car.chassis_offset.Set(0, 1.05, 0);
 	
 	
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
 	car.mass = 500.0f;
 	car.suspensionStiffness = 15.88f;
 	car.suspensionCompression = 0.83f;
@@ -187,6 +177,7 @@ void ModulePlayer::Reset_player()
 	initial_transform[0] = 1; initial_transform[5] = 1;	 initial_transform[10] = 1;
 	vehicle->SetTransform(initial_transform);
 	vehicle->SetPos(0, 0, 0);
+	
 	vehicle->stop_vehicle();
 	App->scene_intro->started = false;
 }

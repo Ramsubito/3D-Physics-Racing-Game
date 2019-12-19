@@ -1,21 +1,10 @@
-﻿  Application.cpp
-  Main.cpp
-  ModuleAudio.cpp
-  ModuleCamera3D.cpp
-  ModuleInput.cpp
-  ModulePhysics3D.cpp
-  ModulePlayer.cpp
-c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\moduleplayer.cpp(25): warning C4305: 'argument': truncation from 'double' to 'float'
-  ModuleRenderer3D.cpp
-  ModuleSceneIntro.cpp
+﻿  ModuleSceneIntro.cpp
 c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(93): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(106): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(220): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(230): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(258): warning C4018: '<': signed/unsigned mismatch
-c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(264): warning C4018: '<': signed/unsigned mismatch
-c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(270): warning C4018: '<': signed/unsigned mismatch
-  ModuleWindow.cpp
-  PhysBody3D.cpp
-  Generating Code...
+c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(269): warning C4018: '<': signed/unsigned mismatch
+c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(275): warning C4018: '<': signed/unsigned mismatch
+c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(281): warning C4018: '<': signed/unsigned mismatch
+c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(287): warning C4018: '<': signed/unsigned mismatch
+c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(292): warning C4018: '<': signed/unsigned mismatch
   3D Physics.vcxproj -> C:\Users\Ramsubo\Desktop\3D-Physics-Racing-Game\Physics3D_class5 - solution\Debug\3D Physics - class5.exe

@@ -66,6 +66,12 @@ public:
 	Timer timer;
 	int remainingTimer = 0;
 	Timer looseTimer;
+	
+	Sphere n;
+	p2DynArray<Sphere> MySphereObj;
+	p2DynArray<PhysBody3D*> MyPhysbodySphereobj;
 
+	p2DynArray<Cube> MyCubeObj;
+	p2DynArray<PhysBody3D*> MyPhysbodyCubeobj;
 
 };
