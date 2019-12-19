@@ -47,12 +47,16 @@ public:
 
 	p2DynArray<Cube> BoxObject;
 	p2DynArray<PhysBody3D*> PhysBody_BoxObejct;
+
+	p2DynArray<Cube>FinalObjects;
+	p2DynArray<PhysBody3D*>PhysBody_FinalObjects;
 	
 	p2DynArray<Cube> Obstacle;
 	p2DynArray<PhysBody3D*> PhysBody_Obstacle;
+	
 
-	PhysBody3D* victory;
-	Cube c_victory;
+
+	
 	
 
 

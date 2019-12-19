@@ -1,18 +1,5 @@
-﻿  Application.cpp
-  Main.cpp
-  ModuleAudio.cpp
-  ModuleCamera3D.cpp
-  ModuleInput.cpp
-  ModulePhysics3D.cpp
-  ModulePlayer.cpp
+﻿  ModulePlayer.cpp
 c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\moduleplayer.cpp(25): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\moduleplayer.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
-  ModuleRenderer3D.cpp
-  ModuleSceneIntro.cpp
-c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(98): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(157): warning C4018: '<': signed/unsigned mismatch
-c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\modulesceneintro.cpp(163): warning C4018: '<': signed/unsigned mismatch
-  ModuleWindow.cpp
-  Generating Code...
+c:\users\ramsubo\desktop\3d-physics-racing-game\physics3d_class5 - solution\moduleplayer.cpp(36): warning C4305: 'argument': truncation from 'double' to 'float'
   3D Physics.vcxproj -> C:\Users\Ramsubo\Desktop\3D-Physics-Racing-Game\Physics3D_class5 - solution\Debug\3D Physics - class5.exe

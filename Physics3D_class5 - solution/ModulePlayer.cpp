@@ -25,17 +25,19 @@ bool ModulePlayer::Start()
 	car.chassis_offset.Set(0, 1.05, 0);
 	//modifications
 	
-	car.upchassis_size.Set(1, 1, 1.2);//modify numbers
-	car.upchassis_offset.Set(1, 1.5, 8);
+	/*car.upchassis_size.Set(4.1, 1.7, 5);
+	car.upchassis_offset.Set(30, 5.5, 20);
 	
-	car.headlightBL_size.Set(0, 0, 0 );
-	car.headlightBL_offset.Set(0, 0, 0);
-	car.headlightBR_size.Set(0, 0, 0);
-	car.headlightBR_offset.Set(0, 0, 0);
-	car.headlightFR_size.Set(0, 0, 0);
-	car.headlightFR_offset.Set(0, 0, 0);
-	car.headlightFL_size.Set(0, 0, 0);
-	car.headlightFL_offset.Set(0, 0, 0);
+
+
+	car.headlightBL_size.Set(0.25, 2, 0.25);
+	car.headlightBL_offset.Set(3, 3.5, -3);
+	car.headlightBR_size.Set(0.25, 40 ,0.25);
+	car.headlightBR_offset.Set(1.9 , -40 , -1.9);
+	//car.headlightFR_size.Set(0, 0, 0);
+	//car.headlightFR_offset.Set(0, 0, 0);
+	//car.headlightFL_size.Set(0, 0, 0);
+	//car.headlightFL_offset.Set(0, 0, 0);*/
 	
 	
 	
