@@ -27,17 +27,9 @@ struct VehicleInfo
 	vec3 chassis_size;
 	vec3 chassis_offset;
 	
-	vec3 upchassis_size;
-	vec3 upchassis_offset;
+
 	
-	vec3 headlightFR_size;//(frontright)
-	vec3 headlightFR_offset;
-	vec3 headlightFL_size;//(frontleft)
-	vec3 headlightFL_offset;
-	vec3 headlightBR_size;//(backright)
-	vec3 headlightBR_offset;
-	vec3 headlightBL_size;//(backleft)
-	vec3 headlightBL_offset;
+	
 
 	
 	float mass;
