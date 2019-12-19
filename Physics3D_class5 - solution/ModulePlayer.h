@@ -18,7 +18,8 @@ public:
 	bool Start();
 	update_status Update(float dt);
 	bool CleanUp();
-	//void reset_player();
+	void Reset_player();
+	
 	
 	
 
@@ -28,8 +29,7 @@ public:
 	float turn;
 	float acceleration;
 	float brake;
-	//bool win = false;
-	//Timer win_timer;
+	
 	
 
 };

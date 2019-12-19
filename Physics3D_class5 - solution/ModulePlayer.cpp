@@ -163,7 +163,7 @@ update_status ModulePlayer::Update(float dt)
 		}
 
 	}
-
+	
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);
@@ -177,5 +177,18 @@ update_status ModulePlayer::Update(float dt)
 	return UPDATE_CONTINUE;
 }
 
+void ModulePlayer::Reset_player()
+{
+	float initial_transform[16];
+	for (int i = 0; i < 16; i++)
+	{
+		initial_transform[i] = 0;
+	}
+	initial_transform[0] = 1; initial_transform[5] = 1;	 initial_transform[10] = 1;
+	vehicle->SetTransform(initial_transform);
+	vehicle->SetPos(0, 0, 0);
+	vehicle->stop_vehicle();
+	App->scene_intro->started = false;
+}
 
 

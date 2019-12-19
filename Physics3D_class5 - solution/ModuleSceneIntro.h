@@ -16,6 +16,7 @@ public:
 	~ModuleSceneIntro();
 
 	bool Start();
+	
 	update_status Update(float dt);
 	bool CleanUp();
 
@@ -54,10 +55,17 @@ public:
 	p2DynArray<Cube> Obstacle;
 	p2DynArray<PhysBody3D*> PhysBody_Obstacle;
 	
-
-
+	//Colliders to start timer and finish race
+	PhysBody3D* StartCol;
+	PhysBody3D* FinishCol;
+	Cube startbox;
+	Cube finishbox;
 	
-	
+	bool started = false;
+
+	Timer timer;
+	int remainingTimer = 0;
+	Timer looseTimer;
 
 
 };

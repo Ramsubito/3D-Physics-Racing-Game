@@ -3,6 +3,7 @@
 #include "ModuleSceneIntro.h"
 #include "Primitive.h"
 #include "PhysBody3D.h"
+#include "ModulePlayer.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -19,35 +20,36 @@ bool ModuleSceneIntro::Start()
 
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
-
-	//Create Map
-
-
-	//RAMP
-	//make Ramps->Add angle
-
-	/*Cube Box1;
-	PhysBody3D* BodyObject1;
-	Box1.size.x = 10;
-	Box1.size.z = 10;
 	
-	Box1.SetRotation(80, vec3(1, 0, 0));
+
+	//start
+	startbox.size = vec3(10, 8,3);
+	startbox.SetPos(0, 0, 8);//starting car position
 	
-	BoxObject.PushBack(Box1);
-	BodyObject1 = App->physics->AddBody(Box1, 0);
-	BodyObject1->SetPos(0.5, 8.5, 53);
-	PhysBody_BoxObejct.PushBack(BodyObject1);
-	Box1.color = Blue;*/
+	StartCol = App->physics->AddBody(startbox, 0.0f);
+	StartCol->SetAsSensor(true);
+	StartCol->collision_listeners.add(this);
+	
+	//Finish
+	finishbox.size = vec3(6, 10, 5);
+	finishbox.SetPos(-6, 1, -4.5);//victory spot position
+
+
+	FinishCol = App->physics->AddBody(finishbox, 0.0f);
+	FinishCol->SetAsSensor(true);
+	FinishCol->collision_listeners.add(this);
+
+	//MAP-----------------------------------------------------------------------------------
 
 	//ASFALT
 	//First straight--------------------------------------
 	Cube Box2;
 	PhysBody3D*BodyObject2;
 	Box2.size.x = 16;
-	Box2.size.z = 150;
+	Box2.size.z = 165;
 	BoxObject.PushBack(Box2);
 	BodyObject2 = App->physics->AddBody(Box2, 0);
-	BodyObject2->SetPos(0, 0,80);
+	BodyObject2->SetPos(0, 0,70);
 	PhysBody_BoxObejct.PushBack(BodyObject2);
 	//Box2.color = Blue;
 	//Delimitations
@@ -211,6 +213,8 @@ BodyFinal4 = App->physics->AddBody(Final4, 0);
 BodyFinal4->SetPos(-6, 5, -10);
 PhysBody_FinalObjects.PushBack(BodyFinal4);
 
+
+//flag position = FInish Collider position y -= 10
 Cube Final5;
 PhysBody3D*BodyFinal5;
 Final5.size.x = 0.1;
@@ -220,6 +224,16 @@ FinalObjects.PushBack(Final5);
 BodyFinal5 = App->physics->AddBody(Final5, 0);
 BodyFinal5->SetPos(-6, 11, -4.5);
 PhysBody_FinalObjects.PushBack(BodyFinal5); 
+
+Cube Final6;
+PhysBody3D*BodyFinal6;
+Final6.size.x = 0.1;
+Final6.size.z = 11;
+Final6.size.y = 2;
+FinalObjects.PushBack(Final6);
+BodyFinal6 = App->physics->AddBody(Final6, 0);
+BodyFinal6->SetPos(-6, 11, -4.5);
+PhysBody_FinalObjects.PushBack(BodyFinal6);
 
 
 
@@ -233,6 +247,7 @@ bool ModuleSceneIntro::CleanUp()
 
 	return true;
 }
+//PreUpdate
 
 // Update
 update_status ModuleSceneIntro::Update(float dt)
@@ -259,6 +274,10 @@ update_status ModuleSceneIntro::Update(float dt)
 
 	}
 	
+	
+	
+
+	
 
 
 
@@ -268,6 +287,18 @@ update_status ModuleSceneIntro::Update(float dt)
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
+
 	
+	/*if( (body1 == StartCol)||(body2 == StartCol))
+	{
+		started = true;
+		timer.Start();
+	}
+	else if((body1 == FinishCol)||(body1 == FinishCol)){
+
+		App->player->Reset_player();
+		started = false;
+		timer.Reset();
+	}*/
 }
 

@@ -41,12 +41,32 @@ void PhysBody3D::SetTransform(const float* matrix) const
 // ---------------------------------------------------------
 void PhysBody3D::SetPos(float x, float y, float z)
 {
+	
 	btTransform t = body->getWorldTransform();
 	t.setOrigin(btVector3(x, y, z));
 	body->setWorldTransform(t);
+
 }
+
 
 btRigidBody * PhysBody3D::GetRigidBody()
 {
 	return body;
+}
+
+
+void PhysBody3D::SetAsSensor(bool is_sensor)
+{
+	if (this->is_sensor != is_sensor)
+	{
+		this->is_sensor = is_sensor;
+		if (is_sensor == true)
+			body->setCollisionFlags(body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
+		else
+			body->setCollisionFlags(body->getCollisionFlags() &~btCollisionObject::CF_NO_CONTACT_RESPONSE);
+	}
+}
+bool PhysBody3D::IsSensor() const
+{
+	return is_sensor;
 }

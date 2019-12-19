@@ -44,8 +44,9 @@ update_status ModuleCamera3D::Update(float dt)
 	// Now we can make this movememnt frame rate independant!
 	
 	//Implement a world navigation mode
-	/*
-	vec3 newPos(0,0,0);
+	
+	/*	
+		vec3 newPos(0,0,0);
 	float speed = 3.0f * dt;
 	if(App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
 		speed = 8.0f * dt;
@@ -61,7 +62,8 @@ update_status ModuleCamera3D::Update(float dt)
 	if(App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed;
 
 	Position += newPos;
-	Reference += newPos;*/
+	Reference += newPos;
+	*/
 	
 	
 	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
@@ -99,6 +101,8 @@ update_status ModuleCamera3D::Update(float dt)
 		Position = Reference + Z * length(Position);
 	}
 	else {
+
+		
 		btVector3 temp = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin();
 
 		float* tempC = new float[16];
@@ -113,19 +117,9 @@ update_status ModuleCamera3D::Update(float dt)
 		Position += C * vec3(0, 3, -10);
 
 		LookAt(vec3(temp.getX(), temp.getY(), temp.getZ()));
-		/*
-		mat4x4 matrix;
-		App->player->vehicle->GetTransform(&matrix);
-
-		Position = matrix.translation();
-
-		X = vec3{ matrix[0],matrix[1],matrix[2] };
-		Y = vec3{ matrix[4], matrix[5], matrix[6] };
-		Z = vec3{ matrix[8], matrix[9],matrix[10] };
-
-		vec3 VehicleLocation = { matrix[12], matrix[13] + ViewVector.y, matrix[14] };
-		Look((VehicleLocation)-Z * 15, VehicleLocation, true);
-	*/
+	
+	
+	
 	}
 
 	
