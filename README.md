@@ -2,6 +2,14 @@
 
 Project for Phtsics II. Create a mini Race Game.
 
+Get to the finish line to restart the game.
+
+## Controls
+UP: ACCELERATE
+DOWN: BREAK
+RIGHT: TURN RIGHT
+LEFT: TURN LEFT
+
 ## License
 //MIT License
 
