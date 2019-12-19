@@ -4,6 +4,7 @@
 #include "Primitive.h"
 #include "PhysVehicle3D.h"
 #include "PhysBody3D.h"
+#include "ModulePlayer.h"
 
 ModulePlayer::ModulePlayer(Application* app, bool start_enabled) : Module(app, start_enabled), vehicle(NULL)
 {
@@ -160,26 +161,30 @@ update_status ModulePlayer::Update(float dt)
 
 	vehicle->Render();
 
-	char title[80];
-	sprintf_s(title, "%.1f Km/h", vehicle->GetKmh());
-	App->window->SetTitle(title);
+	
+	
+	if (App->scene_intro->win == true) {
+		App->window->SetTitle("You completed the race");
+		Reset_player();
+	}
+	else {
+		char title[80];
+		sprintf_s(title, "%.1f Km/h", vehicle->GetKmh());
+		App->window->SetTitle(title);
+	}
 
 	return UPDATE_CONTINUE;
 }
 
 void ModulePlayer::Reset_player()
 {
-	float initial_transform[16];
-	for (int i = 0; i < 16; i++)
-	{
-		initial_transform[i] = 0;
-	}
-	initial_transform[0] = 1; initial_transform[5] = 1;	 initial_transform[10] = 1;
-	vehicle->SetTransform(initial_transform);
-	vehicle->SetPos(0, 0, 0);
+	App->player->acceleration = 0;
+	App->player->brake = 0;
+	App->player->turn = 0;
+	vehicle->SetPos(0, 0, 25);
 	
 	vehicle->stop_vehicle();
-	App->scene_intro->started = false;
+	
 }
 
 

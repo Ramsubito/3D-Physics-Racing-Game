@@ -4,6 +4,7 @@
 #include "Primitive.h"
 #include "PhysBody3D.h"
 #include "ModulePlayer.h"
+#include "PhysVehicle3D.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -227,25 +228,27 @@ PhysBody_FinalObjects.PushBack(BodyFinal5);
 
 
 //Ball 
-Sphere ballkicker;
-ballkicker.SetPos(23, 0, 26);
-ballkicker.radius = 1;
-MySphereObj.PushBack(ballkicker);
+for (int i = 0; i <= 25; i++) {
+	Sphere Ball;
+	//Ball.SetPos(200, 4, 5);
+	Ball.radius = 1;
+	SphereConst.PushBack(Ball);
 
-PhysBody3D*ballkickerObject;
-ballkickerObject = App->physics->AddBody(ballkicker, 1);
-MyPhysbodySphereobj.PushBack(ballkickerObject);
+	PhysBody3D*BallObject;
+	BallObject = App->physics->AddBody(Ball, 1);
+	PhysBody_ShpereConst.PushBack(BallObject);
 
-Cube rect;
-rect.size.y =6;
-MyCubeObj.PushBack(rect);
+	Cube stick;
+	stick.size.y = 3;;
+	stick.SetPos(rand()%110 + 160, 0, rand() % 110 + (-70));
+	Stick_Sphere.PushBack(stick);
 
-PhysBody3D* RectObject;
-RectObject = App->physics->AddBody(rect, 0);
-MyPhysbodyCubeobj.PushBack(RectObject);
+	PhysBody3D* stickObject;
+	stickObject = App->physics->AddBody(stick, 0);
+	PhysBody_Stick.PushBack(stickObject);
 
-App->physics->Add_P2P_Constraint(*ballkickerObject->GetRigidBody(), *RectObject->GetRigidBody(), btVector3(0, 1, 0), btVector3(0, 1, 0), true);
-
+	App->physics->Add_P2P_Constraint(*BallObject->GetRigidBody(), *stickObject->GetRigidBody(), btVector3(0, 1, 0), btVector3(0, 1, 0), true);
+}
 
 
 return ret;
@@ -266,6 +269,18 @@ update_status ModuleSceneIntro::Update(float dt)
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
 	p.Render();
+	
+	mat4x4 w;
+	App->player->vehicle->GetTransform(&w);
+	vec3 player_pos = { w[12], w[13] , w[14] };
+	if (player_pos.x >= -6 && player_pos.y <= 5 && player_pos.z <= -2) {
+		win = true;
+	}
+	else {
+		win = false;
+	}
+
+
 	for (int i = 0; i < BoxObject.Count(); i++) {
 		BoxObject[i].Render();
 		PhysBody_BoxObejct[i]->GetTransform(&BoxObject[i].transform);
@@ -284,19 +299,17 @@ update_status ModuleSceneIntro::Update(float dt)
 
 
 	}
-	for (int i = 0; i < MySphereObj.Count(); i++) {
-		MySphereObj[i].Render();
-		MyPhysbodySphereobj[i]->GetTransform(&MySphereObj[i].transform);
+	for (int i = 0; i < SphereConst.Count(); i++) {
+		SphereConst[i].Render();
+		PhysBody_ShpereConst[i]->GetTransform(&SphereConst[i].transform);
 	}
 	
-	for (int i = 0; i < MyCubeObj.Count(); i++) {
-		MyCubeObj[i].Render();
-		MyPhysbodyCubeobj[i]->GetTransform(&MyCubeObj[i].transform);
+	for (int i = 0; i < Stick_Sphere.Count(); i++) {
+		Stick_Sphere[i].Render();
+		PhysBody_Stick[i]->GetTransform(&Stick_Sphere[i].transform);
 	}
 
 	
-
-
 
 		return UPDATE_CONTINUE;
 	
@@ -308,13 +321,13 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 	
 	if( (body1 == StartCol)||(body2 == StartCol))
 	{
-		started = true;
+		
 		timer.Start();
 	}
 	else if((body1 == FinishCol)||(body2 == FinishCol)){
 
 		App->player->Reset_player();
-		started = false;
+		
 		timer.Reset();
 	}
 }

@@ -61,17 +61,17 @@ public:
 	Cube startbox;
 	Cube finishbox;
 	
-	bool started = false;
+	bool win = false;
 
 	Timer timer;
 	int remainingTimer = 0;
 	Timer looseTimer;
 	
 	Sphere n;
-	p2DynArray<Sphere> MySphereObj;
-	p2DynArray<PhysBody3D*> MyPhysbodySphereobj;
+	p2DynArray<Sphere> SphereConst;
+	p2DynArray<PhysBody3D*> PhysBody_ShpereConst;
 
-	p2DynArray<Cube> MyCubeObj;
-	p2DynArray<PhysBody3D*> MyPhysbodyCubeobj;
+	p2DynArray<Cube> Stick_Sphere;
+	p2DynArray<PhysBody3D*> PhysBody_Stick;
 
 };
